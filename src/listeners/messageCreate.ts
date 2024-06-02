@@ -25,13 +25,16 @@ async function run(message: Message): Promise<void> {
     if (!content || !guildId || author.bot) return;
 
     // nyann :3333
-    const CHANCE_TO_SEND_CUTE_KITTY_CAT_I_LOVE_CATS = 0.6;
-    if (content === ":3" || content === "3:" && Math.random() > CHANCE_TO_SEND_CUTE_KITTY_CAT_I_LOVE_CATS) {
-        await message.reply(message.content === ":3" ? "3:" : ":3");
+    const CHANCE_TO_SEND_CUTE_KITTY_CAT = 0.5;
+
+    if (content === ":3" || content === "3:") {
+        if (Math.random() < CHANCE_TO_SEND_CUTE_KITTY_CAT) {
+            await message.reply(message.content === ":3" ? "3:" : ":3");
+        }
         return;
     }
 
-    if (content.includes("727") || content.includes("7,27") || content.includes("72,7") || content.toLowerCase().includes("wysi")) {
+    if (content.includes("727") || content.includes("7,27") || content.includes("72,7") || content.includes('72.7') || content.includes('7.27') || content.toLowerCase().includes("wysi")) {
         await message.react("wysia:1240624238189088869", true);
         return;
     }
